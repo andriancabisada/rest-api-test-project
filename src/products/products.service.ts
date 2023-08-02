@@ -2,7 +2,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Product } from "/repos/new-rest-api-test-project/src/products/entities/product.entity";
+import { Product } from "./entities/product.entity"
 
 @Injectable()
 export class ProductsService {
@@ -16,16 +16,22 @@ export class ProductsService {
   }
 
   async findOne(id: number): Promise<Product> {
-    return this.productRepository.findOne(id, { relations: ['category'] });
+    return this.productRepository.findOneBy({
+      id: id,
+    })
   }
 
   async create(productData: Partial<Product>): Promise<Product> {
-    return this.productRepository.save(productData);
+    const product = this.productRepository.create(productData);
+    return this.productRepository.save(product);
+    
   }
 
   async update(id: number, productData: Partial<Product>): Promise<Product> {
     await this.productRepository.update(id, productData);
-    return this.productRepository.findOne(id);
+    return this.productRepository.findOneBy({
+      id: id,
+    })
   }
 
   async remove(id: number): Promise<void> {
