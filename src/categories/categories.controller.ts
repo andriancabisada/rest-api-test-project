@@ -1,7 +1,7 @@
 // src/categories/categories.controller.ts
 import { Controller, Get, Post, Put, Delete, Body, Param } from '@nestjs/common';
 import { CategoriesService } from './categories.service';
-import { Category } from '/repos/new-rest-api-test-project/src/categories/entities/category.entity';
+import { Category } from '../categories/entities/category.entity';
 
 @Controller('categories')
 export class CategoriesController {

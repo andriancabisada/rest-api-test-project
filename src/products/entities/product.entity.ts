@@ -1,6 +1,6 @@
 // products.entity.ts
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from 'typeorm';
-import { Category } from '/repos/new-rest-api-test-project/src/categories/entities/category.entity';
+import { Category } from '../../categories/entities/category.entity';
 
 @Entity()
 export class Product {

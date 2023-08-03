@@ -1,7 +1,7 @@
 // src/products/products.controller.ts
 import { Controller, Get, Post, Put, Delete, Body, Param } from '@nestjs/common';
 import { ProductsService } from './products.service';
-import { Product } from "/repos/new-rest-api-test-project/src/products/entities/product.entity";
+import { Product } from "../products/entities/product.entity";
 
 @Controller('products')
 export class ProductsController {
